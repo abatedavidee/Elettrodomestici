@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glossario Innovativo: Electrodomésticos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #4CAF50;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #388E3C;
+            border-bottom: 5px solid #2C6B2F;
+        }
+        h1 {
+            font-size: 2.8em;
+            margin: 0;
+        }
+        .glossary {
+            max-width: 800px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+        dt {
+            font-weight: bold;
+            color: #FFEB3B;
+            padding-left: 40px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        dt:hover {
+            color: #FFC107;
+        }
+        dt i {
+            font-size: 1.5em;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        dd {
+            margin: 0 0 20px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-left: 5px solid #FFEB3B;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        dd:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        /* Modale */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            position: relative;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 80%;
+        }
+        .modal-content img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 2em;
+            color: #FF5E57;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-plug"></i> Glossario Innovativo: Electrodomésticos</h1>
+        <p>Descubre los electrodomésticos más comunes y sus usos.</p>
+    </header>
+    <div class="glossary">
+        <dl id="glossary-content">
+            <dt onclick="showImage('lavadora')"><i class="fas fa-tshirt"></i> Lavadora</dt>
+            <dd>Electrodoméstico utilizado para lavar la ropa mediante agua y detergente.</dd>
+
+            <dt onclick="showImage('nevera')"><i class="fas fa-snowflake"></i> Nevera</dt>
+            <dd>Electrodoméstico que mantiene los alimentos a baja temperatura para conservarlos.</dd>
+
+            <dt onclick="showImage('microondas')"><i class="fas fa-bell"></i> Microondas</dt>
+            <dd>Aparato eléctrico que utiliza ondas electromagnéticas para calentar los alimentos rápidamente.</dd>
+
+            <dt onclick="showImage('televisor')"><i class="fas fa-tv"></i> Televisor</dt>
+            <dd>Dispositivo electrónico utilizado para ver imágenes y escuchar sonido transmitidos por señales.</dd>
+
+            <dt onclick="showImage('aspiradora')"><i class="fas fa-spray-can"></i> Aspiradora</dt>
+            <dd>Electrodoméstico usado para succionar polvo y suciedad de los suelos.</dd>
+
+            <!-- Aggiungi altri elettrodomestici qui con la stessa struttura -->
+        </dl>
+    </div>
+    
+    <!-- Modale -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Imagen del electrodoméstico">
+        </div>
+    </div>
+
+    <script>
+        function showImage(appliance) {
+            const imageUrl = {
+                'lavadora': 'https://example.com/lavadora.jpg',
+                'nevera': 'https://example.com/nevera.jpg',
+                'microondas': 'https://example.com/microondas.jpg',
+                'televisor': 'https://example.com/televisor.jpg',
+                'aspiradora': 'https://example.com/aspiradora.jpg',
+                // Aggiungi altre immagini qui per ogni elettrodomestico
+            };
+            document.getElementById('modalImage').src = imageUrl[appliance];
+            document.getElementById('imageModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
